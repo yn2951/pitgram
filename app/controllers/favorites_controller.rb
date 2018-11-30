@@ -23,7 +23,7 @@ class FavoritesController < ApplicationController
 
     if params[:url] == topics_url
       redirect_to topics_url, info: 'お気に入りから削除しました'
-    elsif params[:url] == favorites_index_url
+    else
       redirect_to favorites_index_url, info: 'お気に入りから削除しました'
     end
   end

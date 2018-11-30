@@ -4,15 +4,15 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
 
     if @comment.save
-      if request.url == topics_url
+      if params[:url] == topics_url
         redirect_to topics_url, info: 'コメントに成功しました'
-      elsif request.url == favorites_index_url
+      else
         redirect_to favorites_index_url, info: 'コメントに成功しました'
       end
     else
-      if request.url == topics_url
+      if params[:url] == topics_url
         redirect_to topics_url, info: 'コメントに失敗しました'
-      elsif request.url == favorites_index_url
+      else
         redirect_to favorites_index_url, info: 'コメントに失敗しました'
       end
     end
